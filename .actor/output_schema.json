@@ -4,11 +4,10 @@
     "description": "Output schema defining the enriched Shopify store leads dataset.",
     "type": "object",
     "properties": {
-        "dataset": {
-            "type": "string",
+        "leadsDataset": {
             "title": "Enriched Leads Dataset",
-            "description": "Dataset containing verified emails, phone numbers, social media links, installed apps, and pricing analytics.",
-            "resourceType": "dataset"
+            "type": "string",
+            "template": "{{links.apiDefaultDatasetUrl}}/items"
         }
     }
 }
