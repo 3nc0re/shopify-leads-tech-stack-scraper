@@ -1,0 +1,79 @@
+{
+    "actorSpecification": 1,
+    "fields": {
+        "type": "object",
+        "properties": {
+            "domain": { "type": "string", "title": "Domain" },
+            "url": { "type": "string", "title": "Store URL" },
+            "is_shopify": { "type": "boolean", "title": "Is Shopify" },
+            "myshopify_domain": { "type": ["string", "null"], "title": "MyShopify Domain" },
+            "store_name": { "type": ["string", "null"], "title": "Store Name" },
+            "description": { "type": ["string", "null"], "title": "Description" },
+            "currency": { "type": ["string", "null"], "title": "Currency" },
+            "country": { "type": ["string", "null"], "title": "Country" },
+            "language": { "type": ["string", "null"], "title": "Language" },
+            "theme_name": { "type": ["string", "null"], "title": "Shopify Theme" },
+            "emails": { "type": "array", "title": "Emails" },
+            "phones": { "type": "array", "title": "Phone Numbers" },
+            "instagram": { "type": ["string", "null"], "title": "Instagram" },
+            "tiktok": { "type": ["string", "null"], "title": "TikTok" },
+            "facebook": { "type": ["string", "null"], "title": "Facebook" },
+            "youtube": { "type": ["string", "null"], "title": "YouTube" },
+            "linkedin": { "type": ["string", "null"], "title": "LinkedIn" },
+            "twitter": { "type": ["string", "null"], "title": "X (Twitter)" },
+            "pinterest": { "type": ["string", "null"], "title": "Pinterest" },
+            "tech_stack": { "type": "array", "title": "Detected Apps & Pixels" },
+            "tech_categories": { "type": "object", "title": "Tech by Category" },
+            "products_count_sampled": { "type": "integer", "title": "Products Sampled" },
+            "avg_price": { "type": ["number", "null"], "title": "Avg Price" },
+            "min_price": { "type": ["number", "null"], "title": "Min Price" },
+            "max_price": { "type": ["number", "null"], "title": "Max Price" },
+            "latest_product_date": { "type": ["string", "null"], "title": "Latest Product Date" },
+            "vendors": { "type": "array", "title": "Brands / Vendors" },
+            "product_types": { "type": "array", "title": "Product Categories" },
+            "scraped_at": { "type": "string", "title": "Scraped At" }
+        }
+    },
+    "views": {
+        "leads_overview": {
+            "title": "B2B Leads & Contacts",
+            "transformation": {
+                "fields": [
+                    "domain",
+                    "store_name",
+                    "is_shopify",
+                    "emails",
+                    "phones",
+                    "instagram",
+                    "tiktok",
+                    "facebook",
+                    "linkedin",
+                    "currency",
+                    "country",
+                    "avg_price",
+                    "products_count_sampled",
+                    "tech_stack"
+                ]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "domain": { "label": "Domain", "format": "text" },
+                    "store_name": { "label": "Store Name", "format": "text" },
+                    "is_shopify": { "label": "Shopify?", "format": "boolean" },
+                    "emails": { "label": "Emails", "format": "array" },
+                    "phones": { "label": "Phones", "format": "array" },
+                    "instagram": { "label": "Instagram", "format": "link" },
+                    "tiktok": { "label": "TikTok", "format": "link" },
+                    "facebook": { "label": "Facebook", "format": "link" },
+                    "linkedin": { "label": "LinkedIn", "format": "link" },
+                    "currency": { "label": "Currency", "format": "text" },
+                    "country": { "label": "Country", "format": "text" },
+                    "avg_price": { "label": "Avg Price", "format": "number" },
+                    "products_count_sampled": { "label": "Products (Sample)", "format": "number" },
+                    "tech_stack": { "label": "Apps & Pixels", "format": "array" }
+                }
+            }
+        }
+    }
+}

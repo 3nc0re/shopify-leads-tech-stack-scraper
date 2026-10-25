@@ -1,0 +1,16 @@
+{
+    "actorSpecification": 1,
+    "name": "shopify-leads-tech-stack-scraper",
+    "title": "Shopify Store Leads, Emails & Tech Stack Scraper",
+    "description": "Extract verified emails, phone numbers, social media profiles, installed apps, ad pixels (Klaviyo, Meta, TikTok, Gorgias), and product pricing analytics from any Shopify store without a browser.",
+    "version": "1.0",
+    "buildTag": "latest",
+    "meta": {
+        "templateId": "python-start"
+    },
+    "input": "./input_schema.json",
+    "dockerfile": "../Dockerfile",
+    "storages": {
+        "dataset": "./dataset_schema.json"
+    }
+}

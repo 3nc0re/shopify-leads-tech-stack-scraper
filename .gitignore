@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+storage/
+apify_storage/
+.pytest_cache/
+.env
+*.log

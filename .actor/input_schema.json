@@ -1,0 +1,65 @@
+{
+    "title": "Shopify Store Leads, Contacts & Tech Stack Scraper",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "domains": {
+            "title": "Store URLs or Domains",
+            "type": "array",
+            "description": "Enter Shopify store domains or full URLs (e.g., 'allbirds.com', 'https://gymshark.com'). Supports bulk lists from Clay, Apollo, or Google Search.",
+            "editor": "stringList",
+            "default": [
+                "https://www.allbirds.com",
+                "https://colourpop.com"
+            ],
+            "prefill": [
+                "https://www.allbirds.com",
+                "https://colourpop.com"
+            ]
+        },
+        "maxContactPages": {
+            "title": "Max Contact/Policy Pages per Store",
+            "type": "integer",
+            "description": "Maximum number of internal contact, about, or legal pages to scan per store to find emails and phone numbers.",
+            "default": 3,
+            "minimum": 0,
+            "maximum": 10
+        },
+        "includeProductsAnalytics": {
+            "title": "Extract Product Catalog & Pricing Analytics",
+            "type": "boolean",
+            "description": "Fetch /products.json to calculate average price, min/max price, product count, vendors, and latest product launch date.",
+            "default": true
+        },
+        "onlyShopify": {
+            "title": "Only Output Verified Shopify Stores",
+            "type": "boolean",
+            "description": "If enabled, non-Shopify websites in your input list will be skipped from the final dataset.",
+            "default": false
+        },
+        "requireEmail": {
+            "title": "Only Output Stores with Emails",
+            "type": "boolean",
+            "description": "If enabled, only stores where at least one valid email address was found will be saved to the dataset (saves Pay-Per-Result credits).",
+            "default": false
+        },
+        "concurrency": {
+            "title": "Max Concurrency",
+            "type": "integer",
+            "description": "Number of stores to process in parallel.",
+            "default": 10,
+            "minimum": 1,
+            "maximum": 50
+        },
+        "proxyConfiguration": {
+            "title": "Proxy Configuration",
+            "type": "object",
+            "description": "Optional proxy settings. Most Shopify stores work without proxies, but proxies help when scanning thousands of domains.",
+            "editor": "proxy",
+            "default": {
+                "useApifyProxy": false
+            }
+        }
+    },
+    "required": ["domains"]
+}
