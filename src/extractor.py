@@ -617,7 +617,12 @@ async def enrich_store(
 
     home_resp = await client.get(base_url, follow_redirects=True)
     home_resp.raise_for_status()
-    final_base_url = f"{home_resp.url.scheme}://{home_resp.url.netloc}"
+    host_str = str(home_resp.url.host)
+    if (home_resp.url.scheme == "https" and home_resp.url.port not in (None, 443)) or (
+        home_resp.url.scheme == "http" and home_resp.url.port not in (None, 80)
+    ):
+        host_str = f"{host_str}:{home_resp.url.port}"
+    final_base_url = f"{home_resp.url.scheme}://{host_str}"
     home_html = home_resp.text
     home_soup = BeautifulSoup(home_html, "lxml")
 
